@@ -5,7 +5,7 @@ defmodule Issues.CLI do
   Handle the command line parsing and the dispatch to the various functions that end up generating a table of hte last _n_ issues in a github project
   """
 
-  def run(argv) do
+  def main(argv) do
     argv
     |> parse_args
     |> process
@@ -52,7 +52,7 @@ defmodule Issues.CLI do
     Issues.GithubIssues.fetch(user, project)
     |> decode_response
     |> convert_to_list_of_maps
-    |> sort_into_ascending_order
+    |> sort_into_descending_order
     |> Enum.take(count)
     |> Issues.TableFormatter.print_table_for_columns(["number", "created_at", "title"])
     |> IO.inspect()
@@ -71,10 +71,10 @@ defmodule Issues.CLI do
     |> Enum.map(&Enum.into(&1, Map.new()))
   end
 
-  def sort_into_ascending_order(list_of_issues) do
+  def sort_into_descending_order(list_of_issues) do
     Enum.sort(
       list_of_issues,
-      fn i1, i2 -> i1["created_at"] <= i2["created_at"] end
+      fn i1, i2 -> i2["created_at"] <= i1["created_at"] end
     )
   end
 end
