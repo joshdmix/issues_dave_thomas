@@ -1,6 +1,6 @@
 # Issues
 
-**TODO: Add description**
+cli for retrieving current github issues
 
 ## Installation
 
