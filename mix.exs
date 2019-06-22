@@ -22,7 +22,8 @@ defmodule Issues.MixProject do
   defp deps do
     [
       {:httpoison, "~> 0.4"},
-      {:jsx, "~> 2.0"}
+      {:jsx, "~> 2.0"},
+      {:scribe, "~> 0.10"}
     ]
   end
 end
