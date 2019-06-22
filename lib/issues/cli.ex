@@ -2,7 +2,7 @@ defmodule Issues.CLI do
   @default_count 4
 
   @moduledoc """
-  Handle the command line parsing and the dispatch to the various functions that end up generating a table of hte last _n_ issues in a github project
+  Handle the command line parsing and the dispatch to the various functions that end up generating a table of the last _n_ issues in a github project
   """
 
   def main(argv) do
